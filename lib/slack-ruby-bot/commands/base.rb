@@ -148,7 +148,7 @@ module SlackRubyBot
           data.attachments.each do |attachment|
             fields_to_scan.each do |field|
               next unless attachment[field]
-              match = route.match(attachment[field])
+              match = attachment[field].match(route)
               return match, attachment, field if match
             end
           end
